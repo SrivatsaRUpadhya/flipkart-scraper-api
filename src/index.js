@@ -17,7 +17,7 @@ export default {
 		let pathname = new URL(request.url).pathname;
 		if (request.method == 'GET') {
 			if (pathname.startsWith('/search/')) {
-				return new Response(await search(pathname.replace('/search/', ''), request.headers.get("host")), {
+				return new Response(await search(pathname.replace('/search/', ''), request.get('page'), request.headers.get("host")), {
 					status: 200,
 					headers
 				})

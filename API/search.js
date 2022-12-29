@@ -1,11 +1,10 @@
 /* Copyright 2022 Vishal Das
-
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 */
 
-const search = async (q, host) => {
-    const searchURL = 'https://www.flipkart.com/search?marketplace=FLIPKART&q=' + q;
+const search = async (q, page, host) => {
+    const searchURL = 'https://www.flipkart.com/search?marketplace=FLIPKART&q=' + q + '&marketplace=FLIPKART&page=' + page;
     console.log("Search initiated : " + searchURL);
     let webPageContents = await (await fetch(searchURL)).text();
     // To rectify pages with exchange option
