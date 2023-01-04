@@ -1,5 +1,4 @@
 /* Copyright 2022 Vishal Das
-
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 */
@@ -11,13 +10,17 @@ import property from '../API/property'
 
 export default {
 	async fetch(request, env, ctx) {
-		console.log(request);
+		console.log(request.url);
 		const hostname = request.headers.get('host');
 		const headers = header(request.headers);
 		let pathname = new URL(request.url).pathname;
+		const url = new URL(request.url);
+		const params = url.searchParams;
+		const page = params.get('page');
+		console.log(page);
 		if (request.method == 'GET') {
 			if (pathname.startsWith('/search/')) {
-				return new Response(await search(pathname.replace('/search/', ''), request.get('page'), request.headers.get("host")), {
+				return new Response(await search(pathname.replace('/search/', ''), page, request.headers.get("host")), {
 					status: 200,
 					headers
 				})
