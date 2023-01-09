@@ -1,3 +1,7 @@
+<head>
+  <link rel="shortcut icon" type="image/x-icon" href="https://dvishal485.github.io/flipkart-scraper-api/favicon.ico">
+</head>
+
 # Flipkart Scraper API
 
 API to scrapes search result and product details from flipkart
